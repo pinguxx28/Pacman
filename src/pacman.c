@@ -56,6 +56,22 @@ void collectCoins (void) {
 	}
 }
 
+void collectPellet(void) {
+	exit_func(pacman.pos.x % TILE_SIZE || pacman.pos.y % TILE_SIZE);
+
+	if (map[pacman.pos.y / TILE_SIZE][pacman.pos.x / TILE_SIZE] == 3) {
+		pacman.pellet_timer = FPS * 10;
+		pacman.score += 40;
+		map[pacman.pos.y / TILE_SIZE][pacman.pos.x / TILE_SIZE] = 0;
+	}
+}
+
+void updatePellet (void) {
+	exit_func(!pacman.pellet_timer);
+
+	pacman.pellet_timer--;
+}
+
 void updateScore  (void) {
 	for (int i = 0; i < 5; i++) {
         long diff = 1 << i;
@@ -87,7 +103,8 @@ void initPacman  (void) {
 }
 
 void drawPacman  (void) {
-	DrawCircle(pacman.pos.x + TILE_SIZE / 2, pacman.pos.y + TILE_SIZE / 2, PACMAN_RADIUS, PACMAN_COLOR);
+	DrawCircle(pacman.pos.x + TILE_SIZE / 2, pacman.pos.y + TILE_SIZE / 2, PACMAN_RADIUS,
+		(pacman.pellet_timer % 2 == 0) ? PACMAN_COLOR : ORANGE);
 
 	DrawCircleSector(
 		(Vector2) { pacman.pos.x + TILE_SIZE / 2, pacman.pos.y + TILE_SIZE / 2 },
@@ -97,11 +114,13 @@ void drawPacman  (void) {
 }
 
 void updatePacman(void) {
-	handleInput ();
-	setQueueDir ();
-	movePacman  ();
-	pacmanFrames();
-	wrapScreen  ();
-	collectCoins();
-	updateScore ();
+	handleInput  ();
+	setQueueDir  ();
+	movePacman   ();
+	pacmanFrames ();
+	wrapScreen   ();
+	collectCoins ();
+	collectPellet();
+	updatePellet ();
+	updateScore  ();
 }

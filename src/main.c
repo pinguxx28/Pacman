@@ -7,7 +7,7 @@ int main(void)
 {
 	/*  Initialize game engine  */
 	InitWindow(DISP_WIDTH, DISP_HEIGHT, "raylib [core] example - keyboard input");
-	SetTargetFPS(15);
+	SetTargetFPS(FPS);
 
 	/*  Initialize objects  */
 	initMap();
@@ -22,8 +22,8 @@ int main(void)
 		BeginDrawing();
 
 			ClearBackground(BLACK);
-			drawMap();
 			drawPacman();
+			drawMap();
 
 		EndDrawing();
 	}
