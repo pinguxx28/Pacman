@@ -30,6 +30,8 @@ enum {
 	PACMAN_MINFRAME = 5,
 	PACMAN_MAXFRAME = 45,
 	PACMAN_FRAMEINC = 15,
+
+	GHOST_AMOUNT	= 4,
 };
 
 typedef enum {
@@ -56,8 +58,12 @@ typedef enum {
 	GHOSTTYPE_PINKY,
 	GHOSTTYPE_INKY,
 	GHOSTTYPE_CLYDE,
-	NUM_GHOSTS,
 } Ghosttype_t;
+
+#define BLINKY_COLOR	RED
+#define PINKY_COLOR		PINK
+#define INKY_COLOR		SKYBLUE
+#define CLYDE_COLOR		ORANGE
 
 typedef enum {
 	PACMAN_MOVEMENT_SPEED	= 8,
@@ -73,6 +79,9 @@ typedef enum {
 typedef enum {
 	PACMAN_START_X = TILE_SIZE,
 	PACMAN_START_Y = TILE_SIZE,
+	
+	HOUSE_X = (int) (MAP_WIDTH  / 2) * TILE_SIZE,
+	HOUSE_Y = (int) (MAP_HEIGHT / 2 - 1) * TILE_SIZE,
 } Positions_t;
 
 typedef struct {
