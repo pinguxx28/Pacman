@@ -13,22 +13,22 @@ Ghost_t ghosts[GHOST_AMOUNT];
 
 /*  Main functions  */
 void initGhosts  (void) {
-	ghosts[0].pos		= (Position_t) { HOUSE_X, HOUSE_Y };
+	ghosts[0].pos		= (Position_t) { BLINKY_START_X, BLINKY_START_Y };
 	ghosts[0].dir		= (Direction_t) { 1, 0 };
 	ghosts[0].target	= (Position_t) { HOUSE_X, HOUSE_Y };
 	ghosts[0].type		= GHOSTTYPE_BLINKY;
 
-	ghosts[1].pos		= (Position_t) { HOUSE_X, HOUSE_Y };
+	ghosts[1].pos		= (Position_t) { INKY_START_X, INKY_START_Y };
 	ghosts[1].dir		= (Direction_t) { 1, 0 };
 	ghosts[1].target	= (Position_t) { HOUSE_X, HOUSE_Y };
 	ghosts[1].type		= GHOSTTYPE_INKY;
 
-	ghosts[2].pos		= (Position_t) { HOUSE_X, HOUSE_Y };
+	ghosts[2].pos		= (Position_t) { PINKY_START_X, PINKY_START_Y };
 	ghosts[2].dir		= (Direction_t) { 1, 0 };
 	ghosts[2].target	= (Position_t) { HOUSE_X, HOUSE_Y };
 	ghosts[2].type		= GHOSTTYPE_PINKY;
 
-	ghosts[3].pos		= (Position_t) { HOUSE_X, HOUSE_Y };
+	ghosts[3].pos		= (Position_t) { CLYDE_START_X, CLYDE_START_Y };
 	ghosts[3].dir		= (Direction_t) { 1, 0 };
 	ghosts[3].target	= (Position_t) { HOUSE_X, HOUSE_Y };
 	ghosts[3].type		= GHOSTTYPE_CLYDE;

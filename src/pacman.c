@@ -95,7 +95,7 @@ void initPacman  (void) {
 	pacman.pos			= (Position_t)  { PACMAN_START_X, PACMAN_START_Y };
 	pacman.dir			= (Direction_t) { 0, 0 };
 	pacman.qdir		 	= (Direction_t) { 0, 0 };
-	pacman.facing    	= 1;
+	pacman.facing    	= 3;
 	pacman.anim_frame	= 0;
 	pacman.frame_inc 	= PACMAN_FRAMEINC;
 	pacman.score	 	= 0;
